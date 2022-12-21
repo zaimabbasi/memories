@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { SignupForm } from "../components";
+import logo from "../assets/memories-logo.png";
 import useTitle from "../hooks/useTitle";
 
 const SignUp = () => {
@@ -9,9 +10,11 @@ const SignUp = () => {
         <section className="mx-auto max-w-7xl px-3">
             <div className="flex h-screen flex-col items-center justify-center">
                 <div className="container min-w-min max-w-md">
-                    <h1 className="text-center text-5xl font-semibold text-gray-900">Memories</h1>
+                    <div className="flex items-center justify-center">
+                        <img className="h-16" src={logo} alt="" />
+                    </div>
 
-                    <div className="mt-7 rounded-md border bg-white p-7 shadow-md">
+                    <div className="mt-9 rounded-md border bg-white p-7 shadow-md">
                         <h2 className="text-xl text-gray-700">Sign up for a new account</h2>
                         <SignupForm />
                     </div>

@@ -13,6 +13,7 @@ import {
 
 import { selectCurrentUser } from "../features/user/userSlice";
 import { useLogoutMutation } from "../features/auth/authApiSlice";
+import logo from "../assets/memories-logo.png";
 import useUserImage from "../hooks/useUserImage";
 import classNames from "../hooks/useClassNames";
 
@@ -26,8 +27,11 @@ const Navbar = () => {
     const [logout] = useLogoutMutation();
 
     const handleLogout = async (e) => {
-        console.log("handleLogout");
-        await logout();
+        try {
+            await logout();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -48,7 +52,8 @@ const Navbar = () => {
                             {/* <div className="flex flex-1 items-center"> */}
                             <div className="mr-3 flex flex-shrink-0 items-center">
                                 <Link className="p-1 focus:outline-none" to="/">
-                                    <h1 className="text-3xl font-semibold text-gray-900">Memories</h1>
+                                    {/* <h1 className="text-3xl font-semibold text-gray-900">Memories</h1> */}
+                                    <img className="h-8" src={logo} alt="" />
                                 </Link>
                             </div>
                             {/* <div className="hidden rounded-md border border-gray-300 px-2 py-1 text-sm focus-within:outline-none sm:mx-auto sm:flex sm:items-center">
